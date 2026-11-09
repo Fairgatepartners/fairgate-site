@@ -1,9 +1,9 @@
 # Fairgate Partners
 
-> Fairgate Partners LLC is a pay-per-call company in Los Angeles that sends live inbound phone calls from homeowners to roofing and home-service companies. Buyers pay only for billable calls.
+> Fairgate Partners LLC is a pay-per-call company in Los Angeles that sends live inbound phone calls from homeowners to home-service companies. Buyers pay only for billable calls.
 
 ## What we do
-- Route live phone calls from homeowners who need roofing, water damage, plumbing or HVAC work to contractors in their area.
+- Route live phone calls from homeowners who need roofing, water damage or HVAC work to contractors in their area.
 - Buyers set their service area, hours and a daily call cap.
 - A call is billable when it connects and lasts past an agreed minimum, usually 90 seconds.
 - Calls are not exclusive; they connect to whichever buyer answers first.

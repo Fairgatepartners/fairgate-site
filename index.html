@@ -3,16 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Fairgate Partners | Pay-per-call for roofers and home services</title>
+<title>Fairgate Partners | Pay-per-call for home-service companies</title>
 <meta name="description" content="Live inbound calls from homeowners, sent straight to your phone. You choose the area, hours and daily cap, and pay only for billable calls.">
 <link rel="canonical" href="https://fairgatepartners.com/">
 <meta name="theme-color" content="#0d1b2a">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Fairgate Partners">
-<meta property="og:title" content="Fairgate Partners | Pay-per-call for roofers and home services">
+<meta property="og:title" content="Fairgate Partners | Pay-per-call for home-service companies">
 <meta property="og:description" content="Live inbound calls from homeowners, sent straight to your phone. You choose the area, hours and daily cap, and pay only for billable calls.">
 <meta property="og:url" content="https://fairgatepartners.com/">
 <meta property="og:image" content="https://fairgatepartners.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Fairgate Partners logo">
+<meta name="twitter:image" content="https://fairgatepartners.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="logo/fairgate-icon.svg">
 <link rel="apple-touch-icon" href="logo/fairgate-icon.png">
@@ -20,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://fairgatepartners.com/#org", "name": "Fairgate Partners", "legalName": "Fairgate Partners LLC", "url": "https://fairgatepartners.com/", "logo": "https://fairgatepartners.com/logo/fairgate-icon.png", "email": "theo@fairgatepartners.com", "telephone": "+1-310-279-3062", "description": "Fairgate Partners sends live inbound phone calls from homeowners to roofing and home-service companies. Buyers pay only for billable calls.", "contactPoint": {"@type": "ContactPoint", "contactType": "sales", "email": "theo@fairgatepartners.com", "telephone": "+1-310-279-3062", "availableLanguage": "English"}}, {"@type": "WebSite", "@id": "https://fairgatepartners.com/#site", "url": "https://fairgatepartners.com/", "name": "Fairgate Partners", "publisher": {"@id": "https://fairgatepartners.com/#org"}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://fairgatepartners.com/#org", "name": "Fairgate Partners", "legalName": "Fairgate Partners LLC", "url": "https://fairgatepartners.com/", "logo": "https://fairgatepartners.com/logo/fairgate-icon.png", "email": "theo@fairgatepartners.com", "telephone": "+1-310-279-3062", "description": "Fairgate Partners sends live inbound phone calls from homeowners to home-service companies. Buyers pay only for billable calls.", "contactPoint": {"@type": "ContactPoint", "contactType": "sales", "email": "theo@fairgatepartners.com", "telephone": "+1-310-279-3062", "availableLanguage": "English"}}, {"@type": "Service", "@id": "https://fairgatepartners.com/#service", "name": "Pay-per-call for home-service companies", "serviceType": "Pay-per-call lead generation", "provider": {"@id": "https://fairgatepartners.com/#org"}, "areaServed": {"@type": "Country", "name": "United States"}, "audience": {"@type": "BusinessAudience", "audienceType": "Roofing, water damage restoration and HVAC companies"}, "description": "Live inbound phone calls from homeowners, delivered to home-service companies and billed per billable call."}, {"@type": "WebSite", "@id": "https://fairgatepartners.com/#site", "url": "https://fairgatepartners.com/", "name": "Fairgate Partners", "publisher": {"@id": "https://fairgatepartners.com/#org"}}]}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -36,7 +40,7 @@
   <div class="wrap">
     <div>
       <h1>Homeowners calling your phone. Not filling out forms.</h1>
-      <p class="lead">Fairgate Partners sends live inbound calls from homeowners who need roof work and other home services. You pick the areas, the hours and how many calls a day, and you only pay for calls that last.</p>
+      <p class="lead">Fairgate Partners sends live inbound calls from homeowners who need work done, from roof repairs to water damage and HVAC. You pick the areas, the hours and how many calls a day, and you only pay for calls that last.</p>
       <div class="actions">
         <a class="btn btn-brass" href="contact.html">Start getting calls</a>
         <a class="btn btn-line" href="how-it-works.html">See how it works</a>
@@ -44,8 +48,8 @@
     </div>
     <div class="call ringing" id="call" aria-label="Example of a call being delivered">
       <div class="call-top"><span class="status"><span class="dot"></span><span id="st">Ringing your office</span></span><span>Example call</span></div>
-      <div class="caller"><strong>Homeowner in Tampa, FL</strong><span>Called from a search ad</span></div>
-      <div class="need">&ldquo;We&rsquo;ve got a leak over the kitchen since the storm. Can someone come look at the roof this week?&rdquo;</div>
+      <div class="caller"><strong id="who">Homeowner, roof repair</strong><span id="src">Called from a search ad</span></div>
+      <div class="need" id="need">&ldquo;We&rsquo;ve got a leak over the kitchen since the storm. Can someone come look at the roof this week?&rdquo;</div>
       <div class="timer"><div class="clock" id="clk">0:00</div><div class="bar"><i id="bar"></i></div></div>
       <div class="bill" id="bill">Billable after 1:30</div>
     </div>
@@ -82,12 +86,11 @@
 
 <section class="section">
   <div class="wrap">
-    <div class="section-head"><h2>Built for roofers first.</h2><p class="lead">Roofing is our main focus. We also send calls for a few other home-service trades.</p></div>
+    <div class="section-head"><h2>Calls for the trades homeowners call in a hurry.</h2><p class="lead">We send calls for jobs where the homeowner needs help soon and picks up the phone to get it.</p></div>
     <div class="trades">
-      <div class="trade main"><h3>Roofing</h3><p>Leaks, repairs, storm damage and full replacements, from homeowners in your area.</p><a class="tag" href="trades.html">More on roofing calls</a></div>
-      <div class="trade"><h3>Water damage</h3><p>Flooding, burst pipes and cleanup.</p></div>
-      <div class="trade"><h3>Plumbing</h3><p>Leaks, drains, water heaters.</p></div>
-      <div class="trade"><h3>HVAC</h3><p>No heat, no cool, new systems.</p></div>
+      <a class="trade" href="trades.html#roofing"><h3>Roofing</h3><p>Leaks, repairs, storm damage and full replacements.</p><span class="tag">Roofing calls</span></a>
+      <a class="trade" href="trades.html#water-damage"><h3>Water damage</h3><p>Flooding, burst pipes, mold and cleanup.</p><span class="tag">Water damage calls</span></a>
+      <a class="trade" href="trades.html#hvac"><h3>HVAC</h3><p>No heat, no cooling, repairs and new systems.</p><span class="tag">HVAC calls</span></a>
     </div>
   </div>
 </section>
@@ -99,7 +102,7 @@
     <div class="foot-grid">
       <div>
         <img src="logo/fairgate-wordmark-white.svg" alt="Fairgate Partners" width="134" height="46">
-        <p>Live inbound calls from homeowners, sent to roofing and home-service companies.</p>
+        <p>Live inbound calls from homeowners, sent to home-service companies.</p>
       </div>
       <div>
         <h4>Company</h4>
@@ -110,19 +113,28 @@
         <ul><li><a href="tel:+13102793062">(310) 279-3062</a></li><li><a href="mailto:theo@fairgatepartners.com">theo@fairgatepartners.com</a></li><li>Los Angeles, California</li></ul>
       </div>
     </div>
-    <div class="legal"><span>&copy; 2026 Fairgate Partners LLC</span><span>Pay-per-call for roofing and home-service companies</span></div>
+    <div class="legal"><span>&copy; 2026 Fairgate Partners LLC</span><span>Pay-per-call for home-service companies</span></div>
   </div>
 </footer>
 <script>
 (function(){
   var card=document.getElementById('call');if(!card)return;
-  var st=document.getElementById('st'),clk=document.getElementById('clk'),bar=document.getElementById('bar'),bill=document.getElementById('bill');
+  var $=function(i){return document.getElementById(i)};
+  var st=$('st'),clk=$('clk'),bar=$('bar'),bill=$('bill'),who=$('who'),src=$('src'),need=$('need');
+  var calls=[
+    ['Homeowner, roof repair','Called from a search ad','“We’ve got a leak over the kitchen since the storm. Can someone come look at the roof this week?”'],
+    ['Homeowner, water damage','Called from a search ad','“A pipe burst under the sink and the floor’s soaked. Can you get someone out today?”'],
+    ['Homeowner, HVAC','Called from a local listing','“Our heater stopped working last night. How soon can a tech come out?”']
+  ];
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function fmt(s){return Math.floor(s/60)+':'+('0'+(s%60)).slice(-2)}
   function show(s){clk.textContent=fmt(s);bar.style.width=Math.min(100,s/90*100)+'%';if(s>=90){bill.textContent='Billable call';bill.classList.add('on')}}
+  function load(c){who.textContent=c[0];src.textContent=c[1];need.textContent=c[2];card.classList.remove('connected');card.classList.add('ringing');st.textContent='Ringing your office';bill.textContent='Billable after 1:30';bill.classList.remove('on');show(0)}
   function connect(){card.classList.remove('ringing');card.classList.add('connected');st.textContent='Connected'}
   if(reduce){connect();show(94);return}
-  setTimeout(function(){connect();var s=0;var t=setInterval(function(){s++;show(s);if(s>=94)clearInterval(t)},45)},1800);
+  var n=0;
+  function run(){load(calls[n]);setTimeout(function(){connect();var s=0;var t=setInterval(function(){s++;show(s);if(s>=94){clearInterval(t);n=(n+1)%calls.length;setTimeout(run,3000)}},45)},1800)}
+  run();
 })();
 </script>
 </body>

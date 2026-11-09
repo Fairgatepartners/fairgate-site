@@ -98,14 +98,11 @@ p{max-width:66ch}
 
 .split{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:start}
 
-.trades{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden}
-.trade{padding:30px 26px;background:var(--white)}
-.trade + .trade{border-left:1px solid var(--line)}
-.trade.main{background:var(--navy);color:var(--white)}
-.trade.main h3{color:var(--white);font-size:26px}
-.trade.main p{color:rgba(255,255,255,.75)}
+.trades{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.trade{display:block;padding:30px 28px;background:var(--white);border:1.5px solid var(--line);border-radius:var(--radius-lg);text-decoration:none;color:inherit;transition:border-color .15s,background .15s}
+.trade:hover{border-color:var(--navy);background:var(--mist)}
 .trade p{color:var(--muted);margin-top:10px;font-size:16px}
-.trade .tag{display:inline-block;margin-top:18px;font-size:13px;color:var(--brass);font-weight:600}
+.trade .tag{display:inline-block;margin-top:20px;font-size:15px;color:var(--brass-ink);font-weight:600;text-decoration:underline;text-underline-offset:3px}
 
 .band{background:var(--navy);color:var(--white);padding:88px 0}
 .band .wrap{display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap}
@@ -183,7 +180,6 @@ textarea{min-height:120px;resize:vertical}
   .steps{grid-template-columns:1fr;gap:28px}
   .controls,.rules,.people{grid-template-columns:1fr}
   .trades{grid-template-columns:1fr}
-  .trade + .trade{border-left:none;border-top:1px solid var(--line)}
   .foot-grid{grid-template-columns:1fr}
   form .row{grid-template-columns:1fr;gap:0}
   .brand img{height:46px}
