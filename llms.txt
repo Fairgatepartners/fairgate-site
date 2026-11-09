@@ -5,7 +5,7 @@
 ## What we do
 - Route live phone calls from homeowners who need roofing, water damage or HVAC work to contractors in their area.
 - Buyers set their service area, hours and a daily call cap.
-- A call is billable when it connects and lasts past an agreed minimum, usually 90 seconds.
+- A call is billable when it connects and lasts past a minimum agreed with each buyer, often 60 to 120 seconds.
 - Calls are not exclusive; they connect to whichever buyer answers first.
 - Buyers prepay in small blocks; disputes are accepted within 7 days and reviewed against the call recording.
 - Fairgate Partners does not guarantee booked jobs.

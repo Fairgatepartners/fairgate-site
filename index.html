@@ -51,7 +51,7 @@
       <div class="caller"><strong id="who">Homeowner, roof repair</strong><span id="src">Called from a search ad</span></div>
       <div class="need" id="need">&ldquo;We&rsquo;ve got a leak over the kitchen since the storm. Can someone come look at the roof this week?&rdquo;</div>
       <div class="timer"><div class="clock" id="clk">0:00</div><div class="bar"><i id="bar"></i></div></div>
-      <div class="bill" id="bill">Billable after 1:30</div>
+      <div class="bill" id="bill">Billable after 1:00 (this buyer&rsquo;s minimum)</div>
     </div>
   </div>
 </section>
@@ -77,7 +77,7 @@
       <div><dt>Your service area</dt><dd>Calls only from the ZIP codes or cities you choose.</dd></div>
       <div><dt>Your hours</dt><dd>Calls only when someone can pick up.</dd></div>
       <div><dt>A daily cap</dt><dd>Never more calls than your crew can handle.</dd></div>
-      <div><dt>A minimum call length</dt><dd>Usually 90 seconds before a call is billable.</dd></div>
+      <div><dt>A minimum call length</dt><dd>You and we agree on it up front, often 60 to 120 seconds.</dd></div>
       <div><dt>Recorded calls</dt><dd>Listen back to any call you paid for.</dd></div>
       <div><dt>7 days to dispute</dt><dd>Bad calls get reviewed and credited.</dd></div>
     </dl>
@@ -122,18 +122,19 @@
   var $=function(i){return document.getElementById(i)};
   var st=$('st'),clk=$('clk'),bar=$('bar'),bill=$('bill'),who=$('who'),src=$('src'),need=$('need');
   var calls=[
-    ['Homeowner, roof repair','Called from a search ad','“We’ve got a leak over the kitchen since the storm. Can someone come look at the roof this week?”'],
-    ['Homeowner, water damage','Called from a search ad','“A pipe burst under the sink and the floor’s soaked. Can you get someone out today?”'],
-    ['Homeowner, HVAC','Called from a local listing','“Our heater stopped working last night. How soon can a tech come out?”']
+    ['Homeowner, roof repair','Called from a search ad',60,'“We’ve got a leak over the kitchen since the storm. Can someone come look at the roof this week?”'],
+    ['Homeowner, water damage','Called from a search ad',90,'“A pipe burst under the sink and the floor’s soaked. Can you get someone out today?”'],
+    ['Homeowner, HVAC','Called from a local listing',120,'“Our heater stopped working last night. How soon can a tech come out?”']
   ];
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function fmt(s){return Math.floor(s/60)+':'+('0'+(s%60)).slice(-2)}
-  function show(s){clk.textContent=fmt(s);bar.style.width=Math.min(100,s/90*100)+'%';if(s>=90){bill.textContent='Billable call';bill.classList.add('on')}}
-  function load(c){who.textContent=c[0];src.textContent=c[1];need.textContent=c[2];card.classList.remove('connected');card.classList.add('ringing');st.textContent='Ringing your office';bill.textContent='Billable after 1:30';bill.classList.remove('on');show(0)}
+  var min=60;
+  function show(s){clk.textContent=fmt(s);bar.style.width=Math.min(100,s/min*100)+'%';if(s>=min){bill.textContent='Billable call';bill.classList.add('on')}}
+  function load(c){min=c[2];who.textContent=c[0];src.textContent=c[1];need.textContent=c[3];card.classList.remove('connected');card.classList.add('ringing');st.textContent='Ringing your office';bill.textContent='Billable after '+fmt(min)+' (this buyer’s minimum)';bill.classList.remove('on');show(0)}
   function connect(){card.classList.remove('ringing');card.classList.add('connected');st.textContent='Connected'}
-  if(reduce){connect();show(94);return}
+  if(reduce){connect();show(64);return}
   var n=0;
-  function run(){load(calls[n]);setTimeout(function(){connect();var s=0;var t=setInterval(function(){s++;show(s);if(s>=94){clearInterval(t);n=(n+1)%calls.length;setTimeout(run,3000)}},45)},1800)}
+  function run(){load(calls[n]);setTimeout(function(){connect();var s=0;var t=setInterval(function(){s++;show(s);if(s>=min+4){clearInterval(t);n=(n+1)%calls.length;setTimeout(run,3000)}},40)},1800)}
   run();
 })();
 </script>
