@@ -125,6 +125,7 @@ p{max-width:66ch}
 .rule-box h3{margin-bottom:12px}
 .rule-box ul{margin-left:20px}
 .rule-box li{margin-top:8px;color:var(--muted)}
+.rules.three{grid-template-columns:repeat(3,1fr)}
 .rule-box.yes{border-color:var(--navy);border-width:2px}
 
 .faq{border-top:1px solid var(--line);max-width:800px}
@@ -178,7 +179,7 @@ textarea{min-height:120px;resize:vertical}
   .hero{padding:48px 0 72px}
   .section{padding:72px 0}
   .steps{grid-template-columns:1fr;gap:28px}
-  .controls,.rules,.people{grid-template-columns:1fr}
+  .controls,.rules,.rules.three,.people{grid-template-columns:1fr}
   .trades{grid-template-columns:1fr}
   .foot-grid{grid-template-columns:1fr}
   form .row{grid-template-columns:1fr;gap:0}
