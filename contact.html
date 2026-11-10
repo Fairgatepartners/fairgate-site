@@ -39,29 +39,27 @@
 
 <section class="section">
   <div class="wrap contact-grid">
-    <form action="https://formsubmit.co/theo@fairgatepartners.com" method="POST">
-      <input type="hidden" name="_subject" value="New inquiry from fairgatepartners.com">
-      <input type="hidden" name="_next" value="https://fairgatepartners.com/thanks.html">
-      <input type="hidden" name="_template" value="table">
-      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <div id="sent" class="sent" hidden tabindex="-1"><h2>Thanks, we got it.</h2><p class="lead">We&rsquo;ll get back to you within one business day. If it&rsquo;s urgent, call or text <a href="tel:+13102793062">(310) 279-3062</a>.</p></div>
+    <form id="contact-form" action="https://docs.google.com/forms/d/e/1FAIpQLScwUCpOweC3Q_AdFlV9XB5z-6krvM_LMjPOhUxB5yHtieTJHg/formResponse" method="POST">
+      <input type="text" id="hp" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
 
       <div class="row">
-        <div class="field"><label for="name">Your name</label><input id="name" name="Name" autocomplete="name" required></div>
-        <div class="field"><label for="company">Company</label><input id="company" name="Company" autocomplete="organization" required></div>
+        <div class="field"><label for="name">Your name</label><input id="name" name="entry.1611823337" autocomplete="name" required></div>
+        <div class="field"><label for="company">Company</label><input id="company" name="entry.135337565" autocomplete="organization" required></div>
       </div>
       <div class="row">
-        <div class="field"><label for="phone">Phone</label><input id="phone" name="Phone" type="tel" autocomplete="tel" required></div>
-        <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="phone">Phone</label><input id="phone" name="entry.679114984" type="tel" autocomplete="tel" required></div>
+        <div class="field"><label for="email">Email</label><input id="email" name="entry.1507674828" type="email" autocomplete="email" required></div>
       </div>
       <div class="row">
         <div class="field"><label for="trade">Trade</label>
-          <select id="trade" name="Trade"><option>Roofing</option><option>Water damage / restoration</option><option>HVAC</option><option>Other</option></select></div>
-        <div class="field"><label for="cap">Calls per day <small>(roughly)</small></label><input id="cap" name="Calls per day" inputmode="numeric" placeholder="e.g. 3"></div>
+          <select id="trade" name="entry.523211103"><option>Roofing</option><option>Water damage / restoration</option><option>HVAC</option><option>Other</option></select></div>
+        <div class="field"><label for="cap">Calls per day <small>(roughly)</small></label><input id="cap" name="entry.1547886591" inputmode="numeric" placeholder="e.g. 3"></div>
       </div>
-      <div class="field"><label for="area">Service area <small>(cities or ZIP codes)</small></label><input id="area" name="Service area" placeholder="The cities or ZIP codes you cover" required></div>
-      <div class="field"><label for="msg">Anything else <small>(optional)</small></label><textarea id="msg" name="Message" placeholder="Hours you take calls, jobs you want or don&rsquo;t want, what you pay for leads now"></textarea></div>
-      <button class="btn btn-navy" type="submit">Send message</button>
-      <p class="form-note">We&rsquo;ll only use this to get back to you.</p>
+      <div class="field"><label for="area">Service area <small>(cities or ZIP codes)</small></label><input id="area" name="entry.640578315" placeholder="The cities or ZIP codes you cover" required></div>
+      <div class="field"><label for="msg">Anything else <small>(optional)</small></label><textarea id="msg" name="entry.1178891015" placeholder="Hours you take calls, jobs you want or don&rsquo;t want, what you pay for leads now"></textarea></div>
+      <button class="btn btn-navy" type="submit" id="send">Send message</button>
+      <p class="form-note" id="form-note">We&rsquo;ll only use this to get back to you.</p>
     </form>
 
     <aside class="aside">
@@ -91,5 +89,21 @@
     <div class="legal"><span>&copy; 2026 Fairgate Partners LLC</span><span>Pay-per-call for home-service companies</span></div>
   </div>
 </footer>
+<script>
+(function(){
+  var f=document.getElementById('contact-form');if(!f)return;
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(document.getElementById('hp').value)return;
+    var b=document.getElementById('send');b.disabled=true;b.textContent='Sending...';
+    fetch(f.action,{method:'POST',mode:'no-cors',body:new FormData(f)}).then(function(){
+      f.hidden=true;var s=document.getElementById('sent');s.hidden=false;s.focus();
+    }).catch(function(){
+      b.disabled=false;b.textContent='Send message';
+      document.getElementById('form-note').textContent='That didn’t send. Check your connection and try again, or call (310) 279-3062.';
+    });
+  });
+})();
+</script>
 </body>
 </html>
